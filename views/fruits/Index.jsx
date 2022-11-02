@@ -2,12 +2,6 @@ const React = require('react')
 const Default = require('../layouts/Default.jsx')
 
 class Index extends React.Component {
-  constructor (props) {
-    super(props)
-    this.props = props
-    this.superman = props.superman
-  }
-
   render () {
     const { fruits } = this.props
     return (

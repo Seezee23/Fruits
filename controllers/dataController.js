@@ -1,10 +1,9 @@
-const { update } = require('../models/fruit')
 const Fruit = require('../models/fruit')
 
 const dataController = {
   // Index,
   index (req, res, next) {
-    Fruit.find({}, (err, foundFruits) => {
+    Fruit.find({ username: req.session.username }, (err, foundFruits) => {
       if (err) {
         res.status(400).send({
           msg: err.message
@@ -45,6 +44,7 @@ const dataController = {
   // Create
   create (req, res, next) {
     req.body.readyToEat = req.body.readyToEat === 'on'
+    req.body.username = req.session.username
     Fruit.create(req.body, (err, createdFruit) => {
       if (err) {
         res.status(400).send({

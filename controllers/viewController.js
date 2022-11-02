@@ -1,6 +1,5 @@
-const { estimatedDocumentCount } = require('../models/fruit')
-
 const RESOURCE_PATH = '/fruits'
+// ^^^ when you make a const that you don't ever want to change, put it in all CAPS. This is called a ____
 
 const viewController = {
   index (req, res, next) {
@@ -22,6 +21,7 @@ const viewController = {
     const fruitId = req.params.id || res.locals.data.fruit._id
     res.redirect(`${RESOURCE_PATH}/${fruitId}`)
   }
+
 }
 
 module.exports = viewController
